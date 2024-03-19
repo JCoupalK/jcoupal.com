@@ -1,0 +1,51 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #121212;
+    /* Dark background */
+    color: #ededed;
+    /* Light text */
+    line-height: 1.6;
+}
+
+a {
+    color: #4DBA87;
+    /* Vue.js green for links, adjust the shade as you like */
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ededed;
+    /* For headings */
+    margin-top: 0;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    background-color: #4DBA87;
+    /* Vue.js green for buttons */
+    color: #ededed;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #42b883;
+}
