@@ -4,17 +4,16 @@
     <header>
       <nav class="navbar">
         <router-link to="/" class="nav-link">Home</router-link>
-        <router-link to="/about-me" class="nav-link">About Me</router-link>
         <router-link to="/projects" class="nav-link">Projects</router-link>
-        <router-link to="/experience" class="nav-link">Experience</router-link>
+        <router-link to="/blog" class="nav-link">Blog</router-link>
       </nav>
     </header>
     <main>
       <router-view/>
     </main>
-    <footer class="footer">
+    <!-- <footer class="footer">
       © 2024 Jordan Coupal. All rights reserved.
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -29,15 +28,15 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #1c1c1c; /* Light background */
-  color: #ededed; /* Darker text for contrast */
+  background: #1c1c1c; 
+  color: #ededed; 
   position: relative;
   overflow: hidden;
 }
 
 header {
   padding: 20px 0;
-  position: fixed; /* Make header sticky */
+  position: fixed; 
   width: 100%;
   top: 0;
   z-index: 1000;
@@ -51,7 +50,7 @@ header {
 }
 
 .nav-link {
-  color: #4DBA87; /* Use the button color for links for consistency */
+  color: #4DBA87; 
   margin: 0 15px;
   text-decoration: none;
   font-size: 18px;
@@ -61,13 +60,13 @@ header {
 }
 
 .nav-link:hover {
-  background-color: rgb(54, 54, 54); /* Light background on hover */
+  background-color: rgb(54, 54, 54); 
 }
 
 main {
   flex: 1;
   padding: 20px;
-  margin-top: 60px; /* Ensure content doesn't hide under the fixed header */
+  margin-top: 60px; 
   position: relative;
   z-index: 1;
 }

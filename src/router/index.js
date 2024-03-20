@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import AboutMe from '@/components/AboutMe.vue'
-import MyProjects from '@/components/MyProjects.vue'
-import MyExperience from '@/components/MyExperience.vue'
 import HomePage from '@/views/HomePage.vue'
+import MyProjects from '@/views/MyProjects.vue'
+import MyBlog from '@/views/MyBlog.vue'
+import BlogPost from '@/components/BlogPost.vue';
 
 const routes = [
   {
@@ -11,20 +11,21 @@ const routes = [
     component: HomePage
   },
   {
-    path: '/about-me',
-    name: 'AboutMe',
-    component: AboutMe
-  },
-  {
     path: '/projects',
     name: 'MyProjects',
     component: MyProjects
   },
   {
-    path: '/experience',
-    name: 'MyExperience',
-    component: MyExperience
-  }
+    path: '/blog',
+    name: 'MyBlog',
+    component: MyBlog
+  },
+  {
+    path: '/blog/:id',
+    name: 'BlogPost',
+    component: BlogPost,
+    props: true,
+  },
 ]
 
 

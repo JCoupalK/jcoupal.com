@@ -3,15 +3,12 @@ body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background-color: #121212;
-    /* Dark background */
     color: #ededed;
-    /* Light text */
     line-height: 1.6;
 }
 
 a {
     color: #4DBA87;
-    /* Vue.js green for links, adjust the shade as you like */
     text-decoration: none;
 }
 
@@ -29,7 +26,6 @@ h4,
 h5,
 h6 {
     color: #ededed;
-    /* For headings */
     margin-top: 0;
 }
 
@@ -37,7 +33,6 @@ h6 {
 .button {
     display: inline-block;
     background-color: #4DBA87;
-    /* Vue.js green for buttons */
     color: #ededed;
     padding: 10px 20px;
     border: none;
