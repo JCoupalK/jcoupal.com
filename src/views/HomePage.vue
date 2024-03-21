@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <h1>Hi, I'm Jordan Coupal</h1>
-    <p>I'm a system administrator with experience programming all sort of tools and maintainer of some GitHub projects.</p>
+    <p>I'm a system administrator with experience programming all sort of tools and maintainer of some projects on GitHub.</p>
     <h2>My Skillsets</h2>
     <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill">
@@ -9,7 +9,7 @@
       </div>
     </div>
     <h2>My Hobbies</h2>
-    <p>Pixel artist on my spare time and I adventure in game developpement from time to time.</p>
+    <p>Pixel artist on my spare time and I adventure in game development from time to time.</p>
     <div class="social-links">
       <a href="https://www.linkedin.com/in/jordan-coupal-222773225/" target="_blank" class="social-link">
         <i class="fab fa-linkedin fa-2x"></i>

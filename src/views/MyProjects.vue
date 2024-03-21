@@ -1,10 +1,20 @@
 <template>
   <div class="projects-container">
-    <h2>Projects</h2>
+    <h2>GitHub Projects</h2>
     <div class="project" v-for="project in projects" :key="project.id">
-      <h3>{{ project.name }}</h3>
-      <p>{{ project.description || 'No description available.' }}</p>
-      <a :href="project.html_url" target="_blank">View on GitHub</a>
+      <div class="project-info">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description || 'No description available.' }}</p>
+        <a :href="project.html_url" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-stats">
+        <span title="Stars">
+          <i class="fas fa-star"></i> {{ project.stargazers_count }}
+        </span>
+        <span title="Forks">
+          <i class="fas fa-code-branch"></i> {{ project.forks_count }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -21,8 +31,23 @@ export default {
     this.fetchProjects();
   },
   methods: {
+    filterProjectsByHighestStars(projects) {
+    const projectMap = {};
+
+    projects.forEach(project => {
+      // If the project name doesn't exist in the map or has fewer stars, replace it (for redundant forks)
+      if (!projectMap[project.name] || projectMap[project.name].stargazers_count < project.stargazers_count) {
+        projectMap[project.name] = project;
+      }
+    });
+
+    return Object.values(projectMap);
+  },
     async fetchProjects() {
-      const url = 'https://api.github.com/users/JCoupalK/repos';
+      const urls = [ 
+        'https://api.github.com/users/JCoupalK/repos',
+        'https://api.github.com/users/KeepSec-Technologies/repos'
+      ];
       const options = {
         headers: {
           'Accept': 'application/vnd.github.v3+json',
@@ -30,15 +55,35 @@ export default {
       };
       
       try {
-        const response = await fetch(url, options);
-        if (!response.ok) throw new Error('Failed to fetch projects');
-        const data = await response.json();
-        this.projects = data.map(({ id, name, description, html_url }) => ({
+      const responses = await Promise.all(urls.map(url => fetch(url, options)));
+      responses.forEach(response => {
+        if (!response.ok) throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      });
+
+        const data = await Promise.all(responses.map(response => response.json()));
+        let combinedProjects  = data.flat().map(({ id, name, description, html_url, stargazers_count, forks_count }) => ({
           id,
           name,
           description,
-          html_url
+          html_url,
+          stargazers_count, 
+          forks_count
         }));
+
+        combinedProjects = this.filterProjectsByHighestStars(combinedProjects);
+
+        // Sort projects by stars, then forks, then alphabetically
+        combinedProjects.sort((a, b) => {
+          if (b.stargazers_count - a.stargazers_count === 0) { // If stars are equal
+            if (b.forks_count - a.forks_count === 0) { // If forks are also equal
+              return a.name.localeCompare(b.name); // Sort alphabetically
+            }
+            return b.forks_count - a.forks_count; // Else sort by forks
+          }
+          return b.stargazers_count - a.stargazers_count; // Default sort by stars
+        });
+
+        this.projects = combinedProjects;
       } catch (error) {
         console.error(error);
       }
@@ -60,24 +105,43 @@ export default {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   transition: background-color 0.3s ease;
 }
 
 .project:hover {
-  background-color: #292929; 
+  background-color: #292929;
 }
 
-.project h3 {
-  margin-top: 0;
+.project-info h3, .project-info p, .project-info a {
+  margin: 5;
 }
-
-.project a {
-  color: #4DBA87; 
+a
+.project-info a {
+  color: #4DBA87;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.project a:hover {
+.project-info a:hover {
   color: #e0e0e0;
 }
+
+.project-stats {
+  display: flex;
+  align-items: center;
+}
+
+.project-stats span {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.project-stats i {
+  margin-right: 5px;
+}
+
 </style>
