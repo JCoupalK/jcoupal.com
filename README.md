@@ -6,6 +6,8 @@
 
 [jcoupal.com](https://jcoupal.com) is a personal website where you can see my blog posts and projects.
 
+The website is made entirely in VueJS and fetches from the Medium RSS feed for my blog posts and the GitHub API to list my projects.
+
 ## Project setup
 ```
 npm install
