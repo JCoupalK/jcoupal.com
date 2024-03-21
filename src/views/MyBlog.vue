@@ -2,10 +2,7 @@
   <div class="blog-container">
     <h2>Blog Posts</h2>
     <div class="category-filter">
-      <button
-        v-for="category in allCategories"
-        :key="category"
-        @click="selectedCategory = category"
+      <button v-for="category in allCategories" :key="category" @click="selectedCategory = category"
         :class="{ active: selectedCategory === category }">
         {{ category }}
       </button>
@@ -28,8 +25,8 @@ export default {
   data() {
     return {
       posts: [],
-      selectedCategory: 'All', 
-      allCategories: [], 
+      selectedCategory: 'All',
+      allCategories: [],
     };
   },
   async mounted() {
@@ -37,11 +34,10 @@ export default {
   },
   methods: {
     async fetchPosts() {
-      // Using cors-anywhere as a CORS proxy
-      const corsProxyUrl = 'https://cors-anywhere.herokuapp.com/';
+      // Using my cors-anywhere instance as a CORS proxy
+      const corsProxyUrl = 'https://cors-anywhere.jcoupal.com/';
       const mediumRssUrl = 'https://jcoupalk.medium.com/feed';
       const proxyUrl = `${corsProxyUrl}${mediumRssUrl}`;
-
       try {
         const response = await fetch(proxyUrl);
         if (!response.ok) {
@@ -69,7 +65,7 @@ export default {
         const categories = Array.from(item.querySelectorAll("category")).map(c => c.textContent);
 
         const contentEncodedElements = item.getElementsByTagNameNS("http://purl.org/rss/1.0/modules/content/", "encoded");
-      let contentEncoded = "";
+        let contentEncoded = "";
         contentEncoded = contentEncodedElements[0].textContent;
         const shortContent = this.createShortContent(contentEncoded);
         posts.push({ title, link, guid, shortContent, categories, formattedPubDate });
@@ -90,28 +86,31 @@ export default {
     },
   },
   computed: {
-      filteredPosts() {
-        if (this.selectedCategory === 'All') {
-          return this.posts;
-        }
-        return this.posts.filter(post => post.categories.includes(this.selectedCategory));
+    filteredPosts() {
+      if (this.selectedCategory === 'All') {
+        return this.posts;
       }
-    },
+      return this.posts.filter(post => post.categories.includes(this.selectedCategory));
+    }
+  },
 }
 </script>
 
 <style scoped>
 .category-filter button {
-  margin-right: 5px;
+  margin: 2px;
+  color: #e0e0e0;
   background-color: #333;
-  color: #fff;
+  padding: 1px 5px;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.category-filter button.active, .category-filter button:hover {
+.category-filter button.active,
+.category-filter button:hover {
   background-color: #4DBA87;
 }
 
@@ -144,10 +143,10 @@ export default {
 }
 
 .post-categories span {
-  margin-right: 5px;
+  margin: 2px;
   background-color: #333;
-  padding: 2px 5px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: 5px;
 }
 
 .post-categories span:hover {
