@@ -17,6 +17,6 @@ jobs:
         with:
           node-version: "14"
       - name: Docker build
-        run: docker build -t jcoupal.com .
+        run: docker build --no-cache -t jcoupal.com .
       - name: Docker Compose Up
-        run: docker compose up -d
+        run: docker compose up -d --force-recreate
