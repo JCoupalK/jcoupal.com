@@ -1,6 +1,10 @@
+<p align="center">
+ <img src="public/website-icon.png"
+</p>
+
 # jcoupal.com
 
-Can be seen at [jcoupal.com](https://jcoupal.com)
+[jcoupal.com](https://jcoupal.com) is a personal website where you can see my blog posts and projects.
 
 ## Project setup
 ```
@@ -24,3 +28,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## License
+
+This project is licensed under Apache 2.0 - see the LICENSE file for details.
