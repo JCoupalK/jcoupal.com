@@ -3,4 +3,4 @@ services:
   jcoupal.com:
     build: .
     ports:
-      - "8080:80"
+      - "9090:80"

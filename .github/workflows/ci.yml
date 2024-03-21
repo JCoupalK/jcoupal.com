@@ -19,4 +19,4 @@ jobs:
       - name: Docker build
         run: docker build -t jcoupal.com .
       - name: Docker Compose Up
-        run: docker-compose up -d
+        run: docker compose up -d
