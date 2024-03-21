@@ -1,4 +1,4 @@
-# my-website
+# jcoupal.com
 
 Can be seen at [jcoupal.com](https://jcoupal.com)
 
