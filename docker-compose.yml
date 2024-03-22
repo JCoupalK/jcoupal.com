@@ -3,4 +3,4 @@ services:
   jcoupal.com:
     build: .
     ports:
-      - "8081:3000"
+      - "8081:8080"
