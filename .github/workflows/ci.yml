@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "14"
-      - name: Docker build
+      - name: Docker Compose Build
         run: docker compose build --no-cache
       - name: Docker Compose Up
         run: docker compose up -d --force-recreate
