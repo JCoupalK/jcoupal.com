@@ -42,6 +42,7 @@ header {
 
 .navbar {
   display: flex;
+  position: relative;
   justify-content: center;
   list-style: none;
   padding: 0;
@@ -52,7 +53,7 @@ header {
   color: #4DBA87;
   margin: 0 10px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   padding: 5px 10px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
