@@ -3,7 +3,7 @@
 </p>
 
 # jcoupal.com
-[![CI](https://github.com/JCoupalK/jcoupal.com/actions/workflows/ci.yml/badge.svg)](https://github.com/JCoupalK/jcoupal.com/actions/workflows/ci.yml)
+![CI](https://github.com/JCoupalK/jcoupal.com/actions/workflows/ci.yml/badge.svg)
 
 [jcoupal.com](https://jcoupal.com) is a personal website where you can see my blog posts and projects.
 
