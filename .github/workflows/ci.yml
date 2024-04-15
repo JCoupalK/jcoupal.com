@@ -8,14 +8,12 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubicloud
 
     steps:
       - uses: actions/checkout@v2
       - name: Remove old container
         run: docker compose down
-      - name: Remove old image
-        run: docker image rm jcoupalcom-jcoupal.com
       - name: Docker Compose Build
         run: docker compose build --no-cache
       - name: Docker Compose Up
