@@ -32,19 +32,19 @@ export default {
   },
   methods: {
     filterProjectsByHighestStars(projects) {
-    const projectMap = {};
+      const projectMap = {};
 
-    projects.forEach(project => {
-      // If the project name doesn't exist in the map or has fewer stars, replace it (for redundant forks)
-      if (!projectMap[project.name] || projectMap[project.name].stargazers_count < project.stargazers_count) {
-        projectMap[project.name] = project;
-      }
-    });
+      projects.forEach(project => {
+        // If the project name doesn't exist in the map or has fewer stars, replace it (for redundant forks)
+        if (!projectMap[project.name] || projectMap[project.name].stargazers_count < project.stargazers_count) {
+          projectMap[project.name] = project;
+        }
+      });
 
-    return Object.values(projectMap);
-  },
+      return Object.values(projectMap);
+    },
     async fetchProjects() {
-      const urls = [ 
+      const urls = [
         'https://api.github.com/users/JCoupalK/repos',
         'https://api.github.com/users/KeepSec-Technologies/repos'
       ];
@@ -53,34 +53,34 @@ export default {
           'Accept': 'application/vnd.github.v3+json',
         }
       };
-      
+
       try {
-      const responses = await Promise.all(urls.map(url => fetch(url, options)));
-      responses.forEach(response => {
-        if (!response.ok) throw new Error(`Failed to fetch projects: ${response.statusText}`);
-      });
+        const responses = await Promise.all(urls.map(url => fetch(url, options)));
+        responses.forEach(response => {
+          if (!response.ok) throw new Error(`Failed to fetch projects: ${response.statusText}`);
+        });
 
         const data = await Promise.all(responses.map(response => response.json()));
-        let combinedProjects  = data.flat().map(({ id, name, description, html_url, stargazers_count, forks_count }) => ({
+        let combinedProjects = data.flat().map(({ id, name, description, html_url, stargazers_count, forks_count }) => ({
           id,
           name,
           description,
           html_url,
-          stargazers_count, 
+          stargazers_count,
           forks_count
         }));
 
         combinedProjects = this.filterProjectsByHighestStars(combinedProjects);
 
-        // Sort projects by stars, then forks, then alphabetically
+        // Sort projects by a combined score of stars and forks
         combinedProjects.sort((a, b) => {
-          if (b.stargazers_count - a.stargazers_count === 0) { // If stars are equal
-            if (b.forks_count - a.forks_count === 0) { // If forks are also equal
-              return a.name.localeCompare(b.name); // Sort alphabetically
-            }
-            return b.forks_count - a.forks_count; // Else sort by forks
+          const scoreA = a.stargazers_count + a.forks_count;
+          const scoreB = b.stargazers_count + b.forks_count;
+
+          if (scoreB - scoreA === 0) { // If combined score is equal
+            return a.name.localeCompare(b.name); // Sort alphabetically
           }
-          return b.stargazers_count - a.stargazers_count; // Default sort by stars
+          return scoreB - scoreA; // Else sort by combined score
         });
 
         this.projects = combinedProjects;
@@ -115,11 +115,13 @@ export default {
   background-color: #292929;
 }
 
-.project-info h3, .project-info p, .project-info a {
+.project-info h3,
+.project-info p,
+.project-info a {
   margin: 5;
 }
-a
-.project-info a {
+
+a .project-info a {
   color: #4DBA87;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -143,5 +145,4 @@ a
 .project-stats i {
   margin-right: 5px;
 }
-
 </style>
