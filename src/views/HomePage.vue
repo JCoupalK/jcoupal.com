@@ -1,7 +1,8 @@
 <template>
   <div class="home-container">
     <h1>Hi, I'm Jordan Coupal</h1>
-    <p>I'm a system administrator with experience programming all sort of tools and maintainer of some projects on GitHub.</p>
+    <p>I'm a MLOps Engineer and Open Source Developper with experience programming all sort of tools and maintainer of
+      some projects on GitHub.</p>
     <h2>My Skillsets</h2>
     <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill">
@@ -43,28 +44,28 @@ export default {
 
 .skills-container {
   display: flex;
-  justify-content: center; 
-  flex-wrap: wrap; 
-  overflow-x: auto; 
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow-x: auto;
   padding: 10px 0;
   max-width: 750px;
-  margin: auto; 
+  margin: auto;
 }
 
 .skill {
   flex: 0 0 auto;
-  margin: 5px; 
+  margin: 5px;
   background: #4DBA87;
   color: #fff;
   padding: 10px;
-  width: 80px; 
+  width: 80px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-radius: 12px; 
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
