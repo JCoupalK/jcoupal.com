@@ -3,7 +3,7 @@
     <h1>Hi, I'm Jordan Coupal</h1>
     <p>I'm a MLOps Engineer, Co-Founder of KeepSec Technologies and Open Source Developper with experience building
       multiple tools and solutions mainly in cloud computing, cybersecurtiy and data integration.</p>
-    <h2>My Skillsets</h2>
+    <h2>My Skills</h2>
     <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill">
         {{ skill }}
@@ -12,14 +12,17 @@
     <h2>My Hobbies</h2>
     <p>Pixel artist on my spare time and I adventure in game development from time to time.</p>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/jordan-coupal-222773225/" target="_blank" class="social-link">
+      <a href="https://www.linkedin.com/in/jordan-coupal-222773225/" alt="LinkedIn" target="_blank" class="social-link">
         <i class="fab fa-linkedin fa-2x"></i>
       </a>
-      <a href="mailto:jordan@jcoupal.com" class="social-link">
+      <a href="mailto:jordan@jcoupal.com" alt="Mail" class="social-link">
         <i class="fas fa-envelope fa-2x"></i>
       </a>
-      <a href="https://github.com/JCoupalK" target="_blank" class="social-link">
+      <a href="https://github.com/JCoupalK" alt="GitHub" target="_blank" class="social-link">
         <i class="fab fa-github fa-2x"></i>
+      </a>
+      <a href="https://www.keepsec.ca" alt="KeepSec Technologies" target="_blank" class="social-link">
+        <img src="../../public/ks-icon-green.png" class="keepsec-icon">
       </a>
     </div>
   </div>
@@ -53,6 +56,13 @@ export default {
 }
 
 .skill {
+  user-select: none;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
   flex: 0 0 auto;
   margin: 5px;
   background: #4DBA87;
@@ -69,6 +79,12 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.skill:hover {
+  background: #409970;
+  color: #333;
 }
 
 .social-links {
@@ -78,11 +94,18 @@ export default {
 .social-link {
   margin: 0 10px;
   color: #4DBA87;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .social-link:hover {
-  color: #333;
+  opacity: 0.2;
+}
+
+.keepsec-icon {
+  width: 31px;
+  height: 32px;
+  position: relative;
+  top: 5px;
 }
 
 h2 {
