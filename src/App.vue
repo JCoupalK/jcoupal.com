@@ -5,10 +5,11 @@
         <router-link to="/" class="nav-link">Home</router-link>
         <router-link to="/projects" class="nav-link">Projects</router-link>
         <router-link to="/blog" class="nav-link">Blog</router-link>
+        <router-link to="/blog-ks" class="nav-link">KeepSec Blog</router-link>
       </nav>
     </header>
     <main>
-      <router-view/>
+      <router-view />
     </main>
   </div>
 </template>

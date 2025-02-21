@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/views/HomePage.vue'
 import MyProjects from '@/views/MyProjects.vue'
 import MyBlog from '@/views/MyBlog.vue'
+import KeepSecBlog from '@/views/KeepSecBlog.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,11 @@ const router = createRouter({
       path: '/blog',
       name: 'MyBlog',
       component: MyBlog
+    },
+    {
+      path: '/blog-ks',
+      name: 'KeepSecBlog',
+      component: KeepSecBlog
     },
   ]
 })

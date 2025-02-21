@@ -1,6 +1,6 @@
 <template>
   <div class="blog-container">
-    <h2>Blog Posts</h2>
+    <h2>Posts</h2>
     <div class="category-filter">
       <button v-for="category in allCategories" :key="category" @click="selectedCategory = category"
         :class="{ active: selectedCategory === category }">

@@ -1,8 +1,8 @@
 <template>
   <div class="home-container">
     <h1>Hi, I'm Jordan Coupal</h1>
-    <p>I'm a MLOps Engineer and Open Source Developper with experience programming all sort of tools and maintainer of
-      some projects on GitHub.</p>
+    <p>I'm a MLOps Engineer, Co-Founder of KeepSec Technologies and Open Source Developper with experience building
+      multiple tools and solutions mainly in cloud computing, cybersecurtiy and data integration.</p>
     <h2>My Skillsets</h2>
     <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill">
