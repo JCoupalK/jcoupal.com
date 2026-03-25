@@ -5,7 +5,7 @@
       multiple tools and solutions mainly in cloud computing, cybersecurity and data integration.</p>
     <h2>My Skills</h2>
     <div class="skills-container">
-      <div class="skill" v-for="skill in skills" :key="skill">
+      <div class="skill" v-for="skill in skills" :key="skill" @click="$router.push('/projects')" style="cursor: pointer;">
         {{ skill }}
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
   background: #4DBA87;
   color: #fff;
   padding: 10px;
-  width: 80px;
+  width: 90px;
   height: 50px;
   display: flex;
   justify-content: center;
