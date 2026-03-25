@@ -1,8 +1,7 @@
 <template>
   <div class="home-container">
     <h1>Hi, I'm Jordan Coupal</h1>
-    <p>I'm a Lead DevSecOps Engineer, Co-Founder of KeepSec Technologies and Open Source contributor with experience building
-      multiple tools and solutions mainly in cloud computing, cybersecurity and data integration.</p>
+    <p>I'm a Lead DevSecOps Engineer, Co-Founder of KeepSec and Vullify, and an Open Source contributor. I specialize in building tools and solutions across cloud computing, cybersecurity, and data integration.</p>
     <h2>My Skills</h2>
     <div class="skills-container">
       <div class="skill" v-for="skill in skills" :key="skill" @click="$router.push('/projects')" style="cursor: pointer;">
