@@ -125,7 +125,7 @@ export default {
 
       skillDescriptions: {
         'Linux':         'Deep systems administration across various distros — from server hardening and service management to performance tuning and kernel configuration.',
-        'Go':            'Primary language for building high-performance CLIs, APIs, and backend services. Used extensively at KeepSec and in open source projects.',
+        'Go':            'Primary language for building high-performance CLIs, APIs, and backend services. Used extensively at KeepSec, Vullify and in open source projects.',
         'Python':        'Scripting, automation workflows, data processing, and rapid tooling. Used across infrastructure and data integration tasks.',
         'Bash':          'Shell scripting for automation, deployment scripts, cron jobs, and day-to-day system administration.',
         'PHP':           'Backend web development and server-side scripting for web applications.',
@@ -135,10 +135,10 @@ export default {
         'SQL':           'Relational database querying, schema design, complex joins, and query optimization across PostgreSQL and MySQL.',
         'Docker':        'Containerizing applications, composing multi-service environments, and building reproducible deployment artifacts.',
         'Kubernetes':    'Orchestrating containerized workloads at scale — cluster management, rolling deployments, and service discovery.',
-        'OpenStack':     'Deploying and managing private cloud infrastructure, compute, networking, and storage resources.',
+        'OpenStack':     'Deploying and managing private cloud infrastructure, compute, networking, and storage resources — foundation behind KeepSec.',
         'Networking':    'TCP/IP, DNS, VPNs, firewalls, load balancers, and designing resilient network architectures.',
         'Cloud':         'Designing and deploying infrastructure across public and private cloud platforms with a focus on scalability and cost.',
-        'Cybersecurity': 'Security assessments, system hardening, threat modeling, and incident response — foundation behind KeepSec.',
+        'Cybersecurity': 'Security assessments, system hardening, threat modeling, and incident response — foundation behind Vullify.',
         'DevSecOps':     'Embedding security practices directly into CI/CD pipelines, shifting left to catch vulnerabilities before production.',
         'API Design':    'Designing clean RESTful APIs with a focus on consistency, versioning, documentation, and developer experience.',
         'System Design': 'Architecting scalable distributed systems — balancing reliability, maintainability, and performance at scale.',
