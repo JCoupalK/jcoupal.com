@@ -104,7 +104,7 @@ export default {
 
       roles: [
         {
-          label: 'VP of Engineering',
+          label: 'Head of Engineering & R&D',
           description: 'Leading engineering at Oriso — building and scaling cloud infrastructure, data integration pipelines, and the teams behind them.',
         },
         {
