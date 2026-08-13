@@ -42,7 +42,7 @@
         <div class="social-group">
           <span class="social-label">Contact</span>
           <div class="social-icons">
-            <a href="https://www.linkedin.com/in/jordan-coupal-222773225/" title="LinkedIn" target="_blank" class="social-link">
+            <a href="https://www.linkedin.com/in/jordancoupal/" title="LinkedIn" target="_blank" class="social-link">
               <i class="fab fa-linkedin fa-2x"></i>
             </a>
             <a href="mailto:jordan@jcoupal.com" title="Email" class="social-link">
